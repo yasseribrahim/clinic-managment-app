@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="colorPrimary">#d93838</color>
-    <color name="colorPrimaryVariant">#25b5d1</color>
+    <color name="colorPrimaryVariant">#d93838</color>
     <color name="colorOnPrimary">#4d4d4d</color>
     <color name="colorSecondary">#FF03DAC5</color>
-    <color name="colorSecondaryVariant">#FF018786</color>
-    <color name="colorOnSecondary">#FF000000</color>
+    <color name="colorSecondaryVariant">#25b5d1</color>
+    <color name="colorOnSecondary">#FF25b5d1</color>
 
     <color name="gray">#C6C6C6</color>
     <color name="gray_dark">@color/black_transparent_50</color>
@@ -70,4 +70,11 @@
     <color name="random_color_8">#d0021b</color>
     <color name="random_color_9">#166642</color>
     <color name="random_color_10">#bdbdbd</color>
+
+    <color name="profilePrimaryDark">#FF3B30</color>
+    <color name="profileAccentColor">#F7F7F7</color>
+    <color name="whiteTextColor">#fff</color>
+    <color name="profileBackground">#fff</color>
+    <color name="blackTextColor">#000</color>
+    <color name="profileEditTextColor">#707070</color>
 </resources>

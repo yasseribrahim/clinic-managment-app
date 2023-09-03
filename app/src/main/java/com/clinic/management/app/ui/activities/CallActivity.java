@@ -103,7 +103,7 @@ public class CallActivity extends BaseActivity implements IncomeCallFragmentCall
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         allowOnLockScreen();
-        setContentView(R.layout.activity_home);
+        setContentView(R.layout.activity_call);
         checker = new PermissionsChecker(this);
         connectionView = (LinearLayout) View.inflate(CallActivity.this, R.layout.connection_popup, null);
     }

@@ -8,7 +8,6 @@
     android:orientation="vertical">
 
     <androidx.appcompat.widget.LinearLayoutCompat
-        android:id="@+id/container_profile"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingTop="10dp"
@@ -33,7 +32,6 @@
     <View style="@style/SeparateView" />
 
     <androidx.appcompat.widget.LinearLayoutCompat
-        android:id="@+id/container_about"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingTop="10dp"
@@ -58,7 +56,6 @@
     <View style="@style/SeparateView" />
 
     <androidx.appcompat.widget.LinearLayoutCompat
-        android:id="@+id/container_app_info"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingTop="10dp"
@@ -83,7 +80,6 @@
     <View style="@style/SeparateView" />
 
     <androidx.appcompat.widget.LinearLayoutCompat
-        android:id="@+id/container_logout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingTop="10dp"

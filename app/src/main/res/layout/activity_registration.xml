@@ -83,7 +83,6 @@
             </FrameLayout>
 
             <TextView
-                android:id="@+id/lbl_password"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
@@ -95,7 +94,6 @@
                 android:textStyle="bold" />
 
             <FrameLayout
-                android:id="@+id/container_password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
@@ -119,7 +117,6 @@
             </FrameLayout>
 
             <TextView
-                android:id="@+id/lbl_confirm_password"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
@@ -131,7 +128,6 @@
                 android:textStyle="bold" />
 
             <FrameLayout
-                android:id="@+id/container_confirm_password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
@@ -141,7 +137,6 @@
                 android:paddingBottom="5dp">
 
                 <EditText
-                    android:id="@+id/re_password"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@null"
@@ -176,7 +171,6 @@
                 android:paddingBottom="5dp">
 
                 <EditText
-                    android:id="@+id/full_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@null"

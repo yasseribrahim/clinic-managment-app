@@ -45,7 +45,6 @@ android {
             minifyEnabled false
             shrinkResources false
             proguardFile 'proguard-rules.pro'
-            resValue "string", "versionName", "QuickBlox Video Chat Java\nBuild version " + defaultConfig.getVersionName()
         }
 
         release {
@@ -53,7 +52,6 @@ android {
             minifyEnabled true
             shrinkResources true
             proguardFile 'proguard-rules.pro'
-            resValue "string", "versionName", "QuickBlox Video Chat Java\nBuild version " + defaultConfig.getVersionName()
         }
     }
 

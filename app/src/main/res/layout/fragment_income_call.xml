@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/fragmentIncomeCall"
     style="@style/MatchParent">
 
     <LinearLayout
-        android:id="@+id/layout_info_about_call"
         style="@style/MatchWidth"
         android:layout_marginTop="@dimen/action_bar_height"
         android:gravity="center_horizontal"

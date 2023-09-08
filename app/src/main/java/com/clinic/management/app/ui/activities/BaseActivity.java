@@ -23,7 +23,7 @@ import com.clinic.management.app.ClinicManagementApplication;
 import com.clinic.management.app.R;
 import com.clinic.management.app.helper.LocaleHelper;
 import com.clinic.management.app.helper.StorageHelper;
-import com.clinic.management.app.models.Constants;
+import com.clinic.management.app.models.User;
 import com.clinic.management.app.presenters.FirebaseCallback;
 import com.clinic.management.app.presenters.FirebasePresenter;
 import com.clinic.management.app.utils.ErrorUtils;
@@ -100,10 +100,12 @@ public abstract class BaseActivity extends AppCompatActivity {
     }
 
     protected void openHome() {
-        Intent intent = new Intent(this, HomeActivity.class);
-        if (getIntent().hasExtra("title")) {
-            String location = getIntent().getStringExtra("title");
-            intent.putExtra(Constants.ARG_OBJECT, location);
+        Intent intent;
+        User user = StorageHelper.getCurrentUser();
+        if (user.isAdmin()) {
+            intent = new Intent(this, HomeAdminActivity.class);
+        } else {
+            intent = new Intent(this, HomeActivity.class);
         }
         startActivity(intent);
         finishAffinity();
@@ -200,5 +202,17 @@ public abstract class BaseActivity extends AppCompatActivity {
                 return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    public void onFailure(String message, View.OnClickListener listener) {
+
+    }
+
+    public void onShowLoading() {
+
+    }
+
+    public void onHideLoading() {
+
     }
 }

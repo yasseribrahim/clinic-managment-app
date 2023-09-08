@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="5dp">
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        style="@style/DoctorCardInfoLayoutContainerStyle"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/name"
+            style="@style/DoctorCardInfoNameStyle"
+            android:layout_alignParentStart="true"
+            android:layout_marginEnd="5dp"
+            android:layout_toStartOf="@+id/user_type"
+            tools:text="Student Name" />
+
+        <View style="@style/SeparateHorizontalView" />
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_marginTop="3dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/speciality"
+                style="@style/DoctorCardInfoDescriptionStyle"
+                android:layout_width="0dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="10dp"
+                android:layout_weight="1"
+                android:textColor="@color/colorAccent"
+                android:textStyle="bold"
+                tools:text="User Type" />
+
+            <TextView
+                android:id="@+id/price"
+                style="@style/DoctorCardInfoDescriptionStyle"
+                android:layout_width="0dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="10dp"
+                android:layout_weight="1"
+                android:gravity="end"
+                android:textColor="@color/colorOnSecondary"
+                android:textStyle="bold"
+                tools:text="User Type" />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <TextView
+            android:id="@+id/username"
+            style="@style/DoctorCardInfoDescriptionStyle"
+            android:layout_width="match_parent"
+            android:layout_toStartOf="@id/phone"
+            android:textColor="@color/green"
+            android:textStyle="bold"
+            tools:text="Username" />
+
+        <TextView
+            android:id="@+id/phone"
+            style="@style/DoctorCardInfoDescriptionStyle"
+            android:layout_alignParentEnd="true"
+            android:textColor="@color/colorPrimary"
+            android:textStyle="bold"
+            tools:text="Phone" />
+
+        <TextView
+            android:id="@+id/address"
+            style="@style/DoctorCardInfoDescriptionStyle"
+            android:layout_width="match_parent"
+            android:layout_marginBottom="10dp"
+            android:textColor="@color/gray_dark"
+            android:textStyle="bold"
+            tools:text="Address" />
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/image"
+        style="@style/DoctorCardInfoPhotoStyle"
+        app:civ_border_color="@color/gray_dark"
+        app:civ_border_width="1dp"
+        app:civ_circle_background_color="@color/border_color" />
+</RelativeLayout>

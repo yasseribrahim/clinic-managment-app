@@ -9,24 +9,23 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import com.clinic.management.app.R;
-import com.clinic.management.app.databinding.ActivityHomeBinding;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.clinic.management.app.databinding.ActivityHomeAdminBinding;
 
-public class HomeActivity extends BaseActivity {
+public class HomeAdminActivity extends AppCompatActivity {
 
-    private ActivityHomeBinding binding;
+    private ActivityHomeAdminBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        binding = ActivityHomeBinding.inflate(getLayoutInflater());
+        binding = ActivityHomeAdminBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications, R.id.navigation_more)
+                R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_specialities, R.id.navigation_notifications, R.id.navigation_more)
                 .build();
 
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_main);

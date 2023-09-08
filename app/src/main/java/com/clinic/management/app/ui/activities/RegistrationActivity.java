@@ -92,6 +92,7 @@ public class RegistrationActivity extends BaseActivity implements UsersCallback,
                 user.setPassword(password);
                 user.setFullName(fullName);
                 user.setPhone(phone);
+                user.setEmail(username);
                 user.setAddress(address);
                 user.setAccountType(accountType);
 

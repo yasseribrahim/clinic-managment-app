@@ -6,6 +6,8 @@ import android.os.Handler;
 
 import com.clinic.management.app.R;
 import com.clinic.management.app.helper.LocaleHelper;
+import com.clinic.management.app.helper.StorageHelper;
+import com.clinic.management.app.models.User;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -36,7 +38,8 @@ public class SplashActivity extends BaseActivity {
     private boolean isOpenHome() {
         FirebaseAuth auth = FirebaseAuth.getInstance();
         FirebaseUser user = auth.getCurrentUser();
-        return user != null;
+        User currentUser = StorageHelper.getCurrentUser();
+        return user != null && currentUser != null;
     }
 
     private void openLogin() {

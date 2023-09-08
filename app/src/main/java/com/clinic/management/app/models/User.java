@@ -9,37 +9,40 @@ public class User implements Parcelable {
     private String password;
     private String fullName;
     private String phone;
+    private String email;
     private String address;
     private String imageProfile;
     private boolean isDeleted;
-
     private int accountType;
-
     private boolean active;
 
+    private String speciality;
+
+    private double price;
     private double wallet;
 
     public User() {
     }
 
     public User(String id) {
-        this(id, "", "", "", "", "", "", false, 0);
+        this(id, "", "", "", "", "", "", "", false, 0);
     }
 
     public User(String username, String password) {
-        this("", username, password, "", "", "", "", false, 0);
+        this("", username, password, "", "", "", "", "", false, 0);
     }
 
     public User(String username, String password, String fullName, String phone) {
-        this("", username, password, fullName, phone, "", "", false, 0);
+        this("", username, password, fullName, phone, "", "", "", false, 0);
     }
 
-    public User(String id, String username, String password, String fullName, String phone, String address, String imageProfile, boolean isDeleted, int accountType) {
+    public User(String id, String username, String password, String fullName, String phone, String email, String address, String imageProfile, boolean isDeleted, int accountType) {
         this.id = id;
         this.username = username;
         this.password = password;
         this.fullName = fullName;
         this.phone = phone;
+        this.email = email;
         this.address = address;
         this.imageProfile = imageProfile;
         this.isDeleted = isDeleted;
@@ -136,6 +139,34 @@ public class User implements Parcelable {
         return wallet;
     }
 
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setSpeciality(String speciality) {
+        this.speciality = speciality;
+    }
+
+    public String getSpeciality() {
+        return speciality;
+    }
+
+    public boolean isAdmin() {
+        return accountType == Constants.ACCOUNT_TYPE_ADMIN;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -156,6 +187,7 @@ public class User implements Parcelable {
         dest.writeString(this.password);
         dest.writeString(this.fullName);
         dest.writeString(this.phone);
+        dest.writeString(this.email);
         dest.writeString(this.address);
         dest.writeString(this.imageProfile);
         dest.writeByte(this.isDeleted ? (byte) 1 : (byte) 0);
@@ -170,6 +202,7 @@ public class User implements Parcelable {
         this.password = source.readString();
         this.fullName = source.readString();
         this.phone = source.readString();
+        this.email = source.readString();
         this.address = source.readString();
         this.imageProfile = source.readString();
         this.isDeleted = source.readByte() != 0;
@@ -184,6 +217,7 @@ public class User implements Parcelable {
         this.password = in.readString();
         this.fullName = in.readString();
         this.phone = in.readString();
+        this.email = in.readString();
         this.address = in.readString();
         this.imageProfile = in.readString();
         this.isDeleted = in.readByte() != 0;

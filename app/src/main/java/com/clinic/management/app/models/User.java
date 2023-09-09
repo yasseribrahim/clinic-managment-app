@@ -3,6 +3,9 @@ package com.clinic.management.app.models;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class User implements Parcelable {
     private String id;
     private String username;
@@ -21,7 +24,10 @@ public class User implements Parcelable {
     private double price;
     private double wallet;
 
+    private List<String> tokens;
+
     public User() {
+        this(null, "", "", "", "", "", "", "", false, 0);
     }
 
     public User(String id) {
@@ -49,6 +55,7 @@ public class User implements Parcelable {
         this.accountType = accountType;
         this.active = false;
         this.wallet = 0;
+        this.tokens = new ArrayList<>();
     }
 
     public String getId() {
@@ -163,6 +170,14 @@ public class User implements Parcelable {
         return speciality;
     }
 
+    public void setTokens(List<String> tokens) {
+        this.tokens = tokens;
+    }
+
+    public List<String> getTokens() {
+        return tokens;
+    }
+
     public boolean isAdmin() {
         return accountType == Constants.ACCOUNT_TYPE_ADMIN;
     }
@@ -173,6 +188,27 @@ public class User implements Parcelable {
         if (o == null || getClass() != o.getClass()) return false;
         User user = (User) o;
         return id.equals(user.id);
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id='" + id + '\'' +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", fullName='" + fullName + '\'' +
+                ", phone='" + phone + '\'' +
+                ", email='" + email + '\'' +
+                ", address='" + address + '\'' +
+                ", imageProfile='" + imageProfile + '\'' +
+                ", isDeleted=" + isDeleted +
+                ", accountType=" + accountType +
+                ", active=" + active +
+                ", speciality='" + speciality + '\'' +
+                ", price=" + price +
+                ", wallet=" + wallet +
+                ", tokens=" + tokens +
+                '}';
     }
 
     @Override
@@ -193,7 +229,10 @@ public class User implements Parcelable {
         dest.writeByte(this.isDeleted ? (byte) 1 : (byte) 0);
         dest.writeInt(this.accountType);
         dest.writeByte(this.active ? (byte) 1 : (byte) 0);
+        dest.writeString(this.speciality);
+        dest.writeDouble(this.price);
         dest.writeDouble(this.wallet);
+        dest.writeStringList(this.tokens);
     }
 
     public void readFromParcel(Parcel source) {
@@ -208,7 +247,10 @@ public class User implements Parcelable {
         this.isDeleted = source.readByte() != 0;
         this.accountType = source.readInt();
         this.active = source.readByte() != 0;
+        this.speciality = source.readString();
+        this.price = source.readDouble();
         this.wallet = source.readDouble();
+        this.tokens = source.createStringArrayList();
     }
 
     protected User(Parcel in) {
@@ -223,7 +265,10 @@ public class User implements Parcelable {
         this.isDeleted = in.readByte() != 0;
         this.accountType = in.readInt();
         this.active = in.readByte() != 0;
+        this.speciality = in.readString();
+        this.price = in.readDouble();
         this.wallet = in.readDouble();
+        this.tokens = in.createStringArrayList();
     }
 
     public static final Creator<User> CREATOR = new Creator<User>() {

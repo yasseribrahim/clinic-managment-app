@@ -9,11 +9,10 @@ public interface Constants {
     int ACCOUNT_TYPE_ADMIN = 1;
     int ACCOUNT_TYPE_CLIENT = 2;
     int ACCOUNT_TYPE_DOCTOR = 3;
-    String NODE_NAME_TOKENS = "tokens";
 
     String NODE_NAME_IMAGES = "images";
     String NODE_NAME_USERS = "users";
-    String NODE_NAME_WALLET_HISTORIES = "wallet_histories";
+    String NODE_NAME_PAYMENTS = "payments";
     String NODE_NAME_ABOUT = "about";
     String NODE_NAME_SPECIALITIES = "specialities";
 

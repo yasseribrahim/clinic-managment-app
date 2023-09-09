@@ -22,4 +22,7 @@ public interface UsersCallback extends BaseCallback {
 
     default void onGetUserComplete(User user) {
     }
+
+    default void onSaveTokenComplete() {
+    }
 }

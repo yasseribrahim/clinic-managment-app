@@ -5,6 +5,7 @@ import androidx.annotation.NonNull;
 import com.clinic.management.app.models.Constants;
 import com.clinic.management.app.models.User;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
@@ -13,6 +14,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.messaging.FirebaseMessaging;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -65,6 +67,30 @@ public class UsersPresenter implements BasePresenter {
         if (callback != null) {
             callback.onSaveUserComplete();
         }
+    }
+
+    public void saveToken(User user, String token) {
+        if (user.getTokens() == null) {
+            user.setTokens(new ArrayList<>());
+        }
+
+        if (!user.getTokens().contains(token)) {
+            user.getTokens().add(token);
+
+            reference.child(user.getId()).setValue(user);
+            if (callback != null) {
+                callback.onSaveTokenComplete();
+            }
+        }
+    }
+
+    public void saveToken(User user) {
+        FirebaseMessaging.getInstance().getToken().addOnSuccessListener(new OnSuccessListener<String>() {
+            @Override
+            public void onSuccess(String token) {
+                saveToken(user, token);
+            }
+        });
     }
 
     public void getUsers() {

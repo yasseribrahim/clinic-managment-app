@@ -24,8 +24,8 @@ import com.clinic.management.app.R;
 import com.clinic.management.app.helper.LocaleHelper;
 import com.clinic.management.app.helper.StorageHelper;
 import com.clinic.management.app.models.User;
-import com.clinic.management.app.presenters.FirebaseCallback;
-import com.clinic.management.app.presenters.FirebasePresenter;
+import com.clinic.management.app.presenters.UsersCallback;
+import com.clinic.management.app.presenters.UsersPresenter;
 import com.clinic.management.app.utils.ErrorUtils;
 import com.clinic.management.app.utils.QBResRequestExecutor;
 import com.clinic.management.app.utils.SharedPrefsHelper;
@@ -50,21 +50,7 @@ public abstract class BaseActivity extends AppCompatActivity {
 
         try {
             if (FirebaseAuth.getInstance().getCurrentUser() != null && StorageHelper.getCurrentUser() != null) {
-                FirebasePresenter presenter = new FirebasePresenter(new FirebaseCallback() {
-                    @Override
-                    public void onFailure(String message, View.OnClickListener listener) {
-
-                    }
-
-                    @Override
-                    public void onShowLoading() {
-
-                    }
-
-                    @Override
-                    public void onHideLoading() {
-
-                    }
+                UsersPresenter presenter = new UsersPresenter(new UsersCallback() {
                 });
                 presenter.saveToken(StorageHelper.getCurrentUser());
             }
